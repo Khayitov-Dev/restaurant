@@ -1,0 +1,125 @@
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <!------ header start ---------->
+    <header class="header">
+        <div class="container">
+            <div class="row justify-content-between aligin-items-center">
+                <div class="logo">
+                    <a href="#"><img src="/media/img/logo.png" alt=""></a>
+                </div>
+                <button type="button" class="nav-toggler">
+                    <span></span>
+                </button>
+                <nav class="nav">
+                    <ul>
+                        <li class="nav-item"><a href="#home">home</a></li>
+                        <li class="nav-item"><a href="#about">about</a></li>
+                        <li class="nav-item"><a href="#our-menu">our-menu</a></li>
+                        <li class="nav-item"><a href="#testimonials">testimonials</a></li>
+                        <li class="nav-item"><a href="#team">team</a></li>
+                        <li class="nav-item"><a href="#contact">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!------ header end ---------->
+
+
+    <!------ home section ---------->
+    <section class="home-section" id="home">
+        <div class="home-bg"></div>
+        <div class="container">
+            <div class="row min-vh-100 aligin-items-center">
+                <div class="home-text">
+                    <h1>Dine Out Restaurant</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil autem at ratione, a suscipit architecto optio expedita accusantium, enim reprehenderit. Facilis obcaecati deserunt quaerat quam nesciunt? Vitae, sed maxime?</p>
+                    <a href="#our-menu" class="btn btn-default">our menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!------ home section end ---------->
+
+
+
+    <!------ about section ---------->
+
+    <section class="about-section sec-padding" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2 data-title="our story">about us</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="about-text">
+                    <h3>Welcome To Dine Out Restaurant</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui natus voluptates culpa quis? Commodi illo aut, dolor optio expedita fugit, porro quod nam veniam ullam facilis cumque quo architecto error, temporibus nisi! Maiores deserunt nobis optio explicabo dignissimos quam maxime eum aliquid? Provident nobis corporis delectus excepturi dolor consequatur, temporibus inventore vero libero amet ducimus? Quo cum rem nobis necessitatibus accusantium molestiae corrupti minima, officia quibusdam animi odio repellendus esse deleniti at debitis. Quas odit sunt hic repudiandae natus qui. Dignissimos, laborum! Cumque illum laborum dolor, ad eligendi culpa aspernatur deserunt quod error beatae optio! Reprehenderit incidunt animi pariatur provident.</p>
+                    <a href="#our-menu" class="btn btn-default">check our menu</a>
+                </div>  
+                <div class="about-img">
+                    <div class="img-box">
+                        <h3>20+ years experience</h3>
+                        <img src="/media/img/about-img.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!------ about section end ---------->
+
+    <!------ menu section ---------->
+
+<section class="menu-section sec-padding" id="our-menu">
+    <div class="container">
+        <div class="row">
+            <div class="section-title">
+                <h2 data-title="order now">our menu</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="menu-tabs">
+            {% for x in category %}
+                <a href=""type="button" class="menu-tab-item active" data-target="#lunch">{{x.title}}</a>
+            {% endfor %}
+            </div>
+        </div>
+
+        
+        <div class="row menu-tab-content active" id="lunch">
+            {% for xs in food %}
+            <div class="menu-item">
+                <div class="menu-item-title">
+                    <img src="{{ xs.photo.url }}">
+                    <h3>{{xs.title}}</h3>
+                </div>
+                    <div class="menu-item-price">
+                        ${{xs.price}}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!------ menu section end ---------->
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
+    {% endblock %}
